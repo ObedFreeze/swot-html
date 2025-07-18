@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrice SWOT - CBDC RDC</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 800px;
+        }
+        
+        .swot-section {
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+        
+        .strengths {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+        
+        .weaknesses {
+            background: linear-gradient(135deg, #f44336, #d32f2f);
+            color: white;
+        }
+        
+        .opportunities {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+        }
+        
+        .threats {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            color: white;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 10px;
+        }
+        
+        .factor-group {
+            margin-bottom: 25px;
+        }
+        
+        .group-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: rgba(255,255,255,0.9);
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        
+        .factor-item {
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 8px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .factor-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(5px);
+        }
+        
+        .factor-title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 0.95em;
+        }
+        
+        .factor-desc {
+            font-size: 0.85em;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .impact-level {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: bold;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        
+        .critical { background: #e74c3c; color: white; }
+        .high { background: #f39c12; color: white; }
+        .medium { background: #3498db; color: white; }
+        .strategic { background: #9b59b6; color: white; }
+        
+        .legend {
+            padding: 20px 40px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        
+        .legend-item {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .swot-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+                height: auto;
+            }
+            
+            .swot-section {
+                padding: 25px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Matrice SWOT</h1>
+            <p>Implémentation d'une CBDC en République Démocratique du Congo</p>
+        </div>
+        
+        <div class="swot-grid">
+            <div class="swot-section strengths">
+                <div class="section-title">Forces</div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Infrastructure Numérique</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Pénétration mobile élevée <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">60% de pénétration, 52 millions d'abonnés</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Écosystème mobile money mature <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">20 millions de comptes actifs, infrastructure USSD opérationnelle</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Capital Humain</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Jeunesse démographique <span class="impact-level strategic">Stratégique</span></div>
+                        <div class="factor-desc">Âge médian 17 ans, appétence pour les outils numériques</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Adoption technologique prouvée <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Croissance mobile money de 23,1M à 18,2M comptes (2023-2024)</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Contexte Économique</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Besoin d'inclusion financière <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">38,5% d'inclusion vs 55% moyenne africaine</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Volonté politique affichée <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Réformes 2018-2023, Code du numérique</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swot-section weaknesses">
+                <div class="section-title">Faiblesses</div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Infrastructure Physique</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Électrification insuffisante <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">21% national (42% urbain, 1% rural)</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Fracture numérique territoriale <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Inégalités urbain/rural, connectivité instable</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Système Financier</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Bancarisation faible <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">8% seulement, concentration Kinshasa (60%)</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Fragmentation institutionnelle <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">287 institutions, interopérabilité limitée</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Confiance & Compétences</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Crise de confiance monétaire <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">90% dollarisation, hyperinflation passée</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Capacités techniques limitées <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Personnel qualifié insuffisant</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Absence cadre légal officiel pour une CBDC <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">Vide réglementaire sur les actifs numériques</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swot-section opportunities">
+                <div class="section-title">Opportunités</div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Transformation Économique</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Formalisation économie informelle <span class="impact-level strategic">Stratégique</span></div>
+                        <div class="factor-desc">85% emploi informel, Amélioration de la collecte fiscale</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Dédollarisation progressive <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">Alternative numérique stable au USD</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Leapfrogging technologique <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Architecture technique adaptée (hors ligne, USSD, sobriété énergétique)</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Services Publics</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Programmabilité transferts sociaux <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Ciblage précis, réduction corruption</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Digitalisation services État <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">Taxes, factures publiques, salaires fonctionnaires</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Intégration Régionale</div>
+                    <div class="factor-item">
+                        <div class="factor-title">ZLECAf et échanges transfrontaliers <span class="impact-level strategic">Stratégique</span></div>
+                        <div class="factor-desc">Facilitation commerce régional, corridor Afrique centrale</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Leadership technologique sous-régional <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">Modèle reproductible, attraction investissements</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Secteurs Spécifiques</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Traçabilité du secteur minier <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Paiements sécurisés des mineurs artisanaux, Transparence fiscale</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Inclusion financière agricole <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">65% population rurale, paiements directs (suppression d'intermédiaires)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swot-section threats">
+                <div class="section-title">Menaces</div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Risques Technologiques</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Vulnérabilités cybersécuritaires <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">Compétences limitées, infrastructure fragile</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Dépendance technologique externe <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Fournisseurs étrangers, souveraineté compromise</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Pannes systémiques <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Coupures électriques, réseaux instables</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Résistances Socio-économiques</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Résistance acteurs traditionnels <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">Banques, réseaux informels, opérateurs existants</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Exclusion numérique persistante <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Populations rurales, personnes âgées</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Méfiance institutionnelle <span class="impact-level critical">Critique</span></div>
+                        <div class="factor-desc">Héritage crises passées, scepticisme BCC</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Concurrence & Substitution</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Cryptomonnaies privées <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">Stablecoins, contournement réglementation</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Cannibalisation bancaire excessive <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Désintermédiation, déstabilisation système</div>
+                    </div>
+                </div>
+                
+                <div class="factor-group">
+                    <div class="group-title">Environnement Macro</div>
+                    <div class="factor-item">
+                        <div class="factor-title">Instabilité géopolitique <span class="impact-level high">Fort</span></div>
+                        <div class="factor-desc">Conflits est du pays, incertitude investissements</div>
+                    </div>
+                    <div class="factor-item">
+                        <div class="factor-title">Contraintes budgétaires État <span class="impact-level medium">Modéré</span></div>
+                        <div class="factor-desc">Financement développement, maintenance système</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item"><span class="impact-level critical">Critique</span> Impact déterminant</div>
+            <div class="legend-item"><span class="impact-level high">Fort</span> Impact significatif</div>
+            <div class="legend-item"><span class="impact-level medium">Modéré</span> Impact notable</div>
+            <div class="legend-item"><span class="impact-level strategic">Stratégique</span> Enjeu à long terme</div>
+        </div>
+    </div>
+</body>
+</html>
